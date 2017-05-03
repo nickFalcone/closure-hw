@@ -19,3 +19,11 @@ test('discount', function (t) {
   t.deepEqual(tot.discount(0.00), 20);
   t.deepEqual(tot.discount(1.00), 0);
 });
+
+test('user', function (t) {
+  let user = hw.user();
+  t.deepEqual(user.setName('Francis Bacon'), true);
+  t.deepEqual(user.getName(), 'Francis Bacon');
+  t.deepEqual(user.setName('123 hi'), false);
+  t.deepEqual(user.getName(), 'Francis Bacon');
+});

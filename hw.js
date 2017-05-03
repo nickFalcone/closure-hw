@@ -17,14 +17,20 @@ module.exports = {
   /**
    * Return a function that accepts the value to multiply `val` by.
    *
-   *  multiply(3)(5); // return 15
+   *  let by5 = hw.multiply(5);
+   *  by5(2);         // return 10
+   *  by5(11);        // return 55
+   *  by5(6);         // return 30
+   * 
+   *  hw.multiply(3)(5); // return 15
+   *  hw.multiply(6)(5); // return 30
    */
   multiply: function (val) {
-  // ?????    
+    // ?????    
   },
 
   /**
-   * Return an object with a discount() property. The discount property should
+   * The discount property should
    * accept an amount that the original price should be discounted by. This
    * should not affect the original amount!
    *
@@ -32,9 +38,9 @@ module.exports = {
    *  tot.discount(0.50); // return 10
    *  tot.discount(0.20); // return 16
    */
-  total: function (amount) { 
+  total: function (amount) {
     return {
-      discount: function(off) {
+      discount: function (off) {
         return amount - (amount * off);
       }
     }
@@ -50,7 +56,16 @@ module.exports = {
    *  user.setName('123 hi'); // return false
    *  user.getName(); // return 'Francis Bacon'
    */
-  user: function () { },
+  user: function () {
+    return {
+      setName: function (name) {
+
+      },
+      getName: function (name) {
+
+      }
+    }
+  },
 
   /**
    * Create a color object that's got six different properties: incrRed(amount), 
@@ -116,4 +131,27 @@ module.exports = {
    *  console.log(pocket.trinkets()); // 1
    */
   pocket: function (start) { },
+
+  /**
+ * Create an account that keeps track of a balance and records all
+ * transactions to and from the account. You shouldn't be able to 
+ * change the balance without recording a transaction. Each transaction
+ * should be represented as an object like:
+ * 
+ *      { type: 'withdraw', amount: 15, success: true }
+ * 
+ * You also shouldn't be able to withdraw money that you don't have. If
+ * you try to do that, the transaction should still be recorded but
+ * 'success' should be set to false.
+ * 
+ * let acct = hw.account(200);
+ * acct.withdraw(100);  // successful withdraw
+ * acct.withdraw(20);   // successful withdraw
+ * 
+ * acct.deposit(25);    // successful deposit
+ * acct.withdraw(200);  // unsuccessful withdraw (not enough funds)
+ * 
+ * acct.transactions(); // returns array of all transaction objects
+ */
+  account: function (initial) { },
 };
