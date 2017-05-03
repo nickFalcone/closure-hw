@@ -35,3 +35,13 @@ test('user', function (t) {
   t.deepEqual(user.setName('123 hi'), false); 
   t.deepEqual(user.getName(), 'Francis Bacon');
 });
+
+test('color', function (t) {
+  let color = hw.color(150, 200, 18);
+  color.incrRed(12);
+  color.incrGreen(30);
+  color.incrBlue(-9);
+  t.deepEqual(color.red(), 162);
+  t.deepEqual(color.green(), 230);
+  t.deepEqual(color.blue(), 9);
+});

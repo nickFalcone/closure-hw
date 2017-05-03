@@ -29,7 +29,7 @@ module.exports = {
   multiply: function (val) { // val is set once at the beginning
     return function (num) { // num is normal scope
       return val * num;
-    } 
+    }
   },
 
   /**
@@ -67,7 +67,8 @@ module.exports = {
       setName: function (name) {
         if (name.match(/^[A-Za-z ]+$/)) {
           n = name;
-          // this lets us send the value of name outside setName
+          // this lets us send the value of name outside 
+          // the setName function to the scope of 'n'
           return true;
         } else {
           return false;
@@ -95,7 +96,42 @@ module.exports = {
    *  color.incrBlue(-9);
    *  console.log(color.red(), color.green(), color.blue()); // 162, 230, 9
    */
-  color: function (r, g, b) { },
+  color: function (r, g, b) {
+    
+    return {
+      incrRed: function (amount) {
+        // return r = r + amount;
+        if (0 <= r + amount && r + amount <= 255) {
+          return r = r + amount;
+        } else {
+          return undefined;
+        }
+      },
+      incrGreen: function (amount) {
+        if (0 <= g + amount && g + amount <= 255) {
+          return g = g + amount;
+        } else {
+          return undefined;
+        }
+      },
+      incrBlue: function (amount) {
+        if (0 <= b + amount && b + amount <= 255) {
+        return b = b + amount;
+        } else {
+          return undefined;
+        }
+      },
+      red: function () {
+        return r;
+      },
+      green: function () {
+        return g;
+      },
+      blue: function () {
+        return b;
+      }
+    }
+  },
 
   /**
    * Track the number of lives remaining in a game.
