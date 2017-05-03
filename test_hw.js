@@ -45,3 +45,13 @@ test('color', function (t) {
   t.deepEqual(color.green(), 230);
   t.deepEqual(color.blue(), 9);
 });
+
+test('lives', function (t) {
+  let lives = hw.lives(5);
+  lives.died();
+  t.deepEqual(lives.left(), 4);
+  lives.died();
+  t.deepEqual(lives.left(), 3);
+  lives.restart();
+  t.deepEqual(lives.left(), 5);
+});

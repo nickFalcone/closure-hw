@@ -97,7 +97,7 @@ module.exports = {
    *  console.log(color.red(), color.green(), color.blue()); // 162, 230, 9
    */
   color: function (r, g, b) {
-    
+
     return {
       incrRed: function (amount) {
         // return r = r + amount;
@@ -116,7 +116,7 @@ module.exports = {
       },
       incrBlue: function (amount) {
         if (0 <= b + amount && b + amount <= 255) {
-        return b = b + amount;
+          return b = b + amount;
         } else {
           return undefined;
         }
@@ -144,7 +144,19 @@ module.exports = {
    *  lives.restart();
    *  console.log(lives.left()); // 5
    */
-  lives: function (start) { },
+  lives: function (start) {
+    return {
+      died: function () {
+        return start = start - 1;
+      },
+      left: function () {
+        return start;
+      },
+      restart: function() {
+        return start = 5;
+      }
+    }
+  },
 
   /**
    * Return a string that contains the 'message id' before the message text.
