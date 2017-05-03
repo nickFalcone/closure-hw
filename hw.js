@@ -25,8 +25,11 @@ module.exports = {
    *  hw.multiply(3)(5); // return 15
    *  hw.multiply(6)(5); // return 30
    */
-  multiply: function (val) {
-    // ?????    
+  // need a val 2 in ()?
+  multiply: function (val) { // val is set once at the beginning
+    return function (num) { // num is normal scope
+      return val * num;
+    } 
   },
 
   /**
@@ -59,10 +62,15 @@ module.exports = {
   user: function () {
     return {
       setName: function (name) {
-
+        if (name.match(/[A-Za-z ]+$/)) {
+          this.name = name;
+          return true;
+        } else {
+          return false;
+        }
       },
-      getName: function (name) {
-
+      getName: function () {
+        return this.name;
       }
     }
   },
