@@ -11,7 +11,7 @@ module.exports = {
       next: function () {
         return start + 1;
       }
-    }
+    };
   },
 
   /**
@@ -19,7 +19,9 @@ module.exports = {
    *
    *  multiply(3)(5); // return 15
    */
-  multiply: function (val) { },
+  multiply: function (val) {
+  // ?????    
+  },
 
   /**
    * Return an object with a discount() property. The discount property should
@@ -30,7 +32,13 @@ module.exports = {
    *  tot.discount(0.50); // return 10
    *  tot.discount(0.20); // return 16
    */
-  total: function (amount) { },
+  total: function (amount) { 
+    return {
+      discount: function(off) {
+        return amount - (amount * off);
+      }
+    }
+  },
 
   /**
    * Set the name of a user. Only valid names can be provided. A `valid` name is
