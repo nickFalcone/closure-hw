@@ -60,17 +60,21 @@ module.exports = {
    *  user.getName(); // return 'Francis Bacon'
    */
   user: function () {
+    let n = ''; // think of this as storage
+    // everythhing beneth is accessable here
+    // n is in the parent scope of setName and getName
     return {
       setName: function (name) {
-        if (name.match(/[A-Za-z ]+$/)) {
-          this.name = name;
+        if (name.match(/^[A-Za-z ]+$/)) {
+          n = name;
+          // this lets us send the value of name outside setName
           return true;
         } else {
           return false;
         }
       },
       getName: function () {
-        return this.name;
+        return n;
       }
     }
   },

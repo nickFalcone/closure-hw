@@ -32,7 +32,6 @@ test('user', function (t) {
   let user = hw.user();
   t.deepEqual(user.setName('Francis Bacon'), true);
   t.deepEqual(user.getName(), 'Francis Bacon');
-  // trouble when calling set and getName again
   t.deepEqual(user.setName('123 hi'), false); 
   t.deepEqual(user.getName(), 'Francis Bacon');
 });
