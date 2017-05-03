@@ -55,3 +55,29 @@ test('lives', function (t) {
   lives.restart();
   t.deepEqual(lives.left(), 5);
 });
+
+// test('message', function (t) {
+//   let logger = hw.messages();
+//   let msg = logger.record('first message');
+//   t.deepEqual(msg, '[1] first message');
+//   let msg = logger.record('second message');
+//   t.deepEqual(msg, '[2] second message');
+// });
+
+test('pocket', function (t) {
+  let pocket = hw.pocket(50);
+  // let trinkets = 0;
+
+  pocket.buy();
+  t.deepEqual(pocket.coins(), 40);
+  t.deepEqual(pocket.trinkets(), 1);
+
+  pocket.buy();
+  t.deepEqual(pocket.coins(), 30);
+  t.deepEqual(pocket.trinkets(), 2);
+
+  pocket.sell();
+  t.deepEqual(pocket.coins(), 35);
+  t.deepEqual(pocket.trinkets(), 1);
+
+});

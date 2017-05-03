@@ -168,7 +168,26 @@ module.exports = {
    *  msg = logger.record('second message');
    *  console.log(msg); // '[2] second message'
    */
-  messages: function () { },
+  messages: function () {
+    // msg = [ counter ] + msg
+  //   counter: function (start) {
+  //   return {
+  //     next: function () {
+  //       return start + 1;
+  //     }
+  //   };
+  // },
+    
+    // return {
+    //   count: function (init) {
+    //     return {
+    //       next: function () {
+    //         return init + 1;
+    //       }
+    //     }
+    //   }
+    // }
+  },
 
   /**
    * Create a pocket object that can contain COINS and TRINKETS. The pocket
@@ -190,7 +209,28 @@ module.exports = {
    *  console.log(pocket.coins()); // 35
    *  console.log(pocket.trinkets()); // 1
    */
-  pocket: function (start) { },
+  pocket: function (start) { // start w 50 coins
+    // need functions for buy/sell/coins/trinkets
+    let trinkets = 0;
+    let coins = start;
+
+    return {
+      buy: function() {
+        coins = coins - 10;
+        trinkets = trinkets + 1;
+      },
+      sell: function() {
+        coins = coins + 5;
+        trinkets = trinkets - 1;
+      },
+      coins: function() {
+        return coins;
+      },
+      trinkets: function() {
+        return trinkets;
+      },
+    }
+  },
 
   /**
  * Create an account that keeps track of a balance and records all
