@@ -172,6 +172,8 @@ module.exports = {
     // need record / counter functions
     // will need to concat counter with the string from record
     // similar to first counter problem?
+
+    // should test that the character at index 1 is not negative [-1] negative message
   },
 
   /**
@@ -244,7 +246,37 @@ module.exports = {
  */
   account: function (initial) {
     // seems similar to the doubloons and parots example from class
+    let trx = [];
+    // account object (val)
+      //  need withdraw deposit and transaction functions
+      //  if withdraw.amt > val  => send to transactions array false
+        //  else val = val - withdraw.amt
+        //  send to transactions array as true
 
-    // need: 
+      //  val = val + deposit.amt
+        //  send to transactions array as true
+
+      // transactions return transactions array 
+  
+    return {
+      withdraw: function (amt) {
+        if (amt > initial) {
+          // false
+          // send to trx array
+        } else {
+          initial = initial + amt;
+          // true
+          // send to trx array
+        }
+      },
+      deposit: function (amt) {
+        initial = initial + amt;
+        // trx.push()
+      },
+      transactions: function() {
+        return trx;
+      }
+    }
+
   },
 };

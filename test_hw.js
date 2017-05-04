@@ -88,5 +88,7 @@ test('pocket', function (t) {
   // t.deepEqual(pocket.coins(), 35);
   // t.deepEqual(pocket.trinkets(), 1);
 
+  
+
 
 });
