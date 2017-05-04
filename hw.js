@@ -169,24 +169,9 @@ module.exports = {
    *  console.log(msg); // '[2] second message'
    */
   messages: function () {
-    // msg = [ counter ] + msg
-  //   counter: function (start) {
-  //   return {
-  //     next: function () {
-  //       return start + 1;
-  //     }
-  //   };
-  // },
-    
-    // return {
-    //   count: function (init) {
-    //     return {
-    //       next: function () {
-    //         return init + 1;
-    //       }
-    //     }
-    //   }
-    // }
+    // need record / counter functions
+    // will need to concat counter with the string from record
+    // similar to first counter problem?
   },
 
   /**
@@ -216,12 +201,16 @@ module.exports = {
 
     return {
       buy: function() {
-        coins = coins - 10;
-        trinkets = trinkets + 1;
+        if (coins >= 10) { // add to remove negative coins
+          coins = coins - 10;
+          trinkets = trinkets + 1;
+        }
       },
       sell: function() {
-        coins = coins + 5;
-        trinkets = trinkets - 1;
+        if (trinkets >= 1) { // add to remove negative trinkets
+          coins = coins + 5;
+          trinkets = trinkets - 1;
+        }
       },
       coins: function() {
         return coins;
@@ -253,5 +242,9 @@ module.exports = {
  * 
  * acct.transactions(); // returns array of all transaction objects
  */
-  account: function (initial) { },
+  account: function (initial) {
+    // seems similar to the doubloons and parots example from class
+
+    // need: 
+  },
 };

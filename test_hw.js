@@ -66,7 +66,6 @@ test('lives', function (t) {
 
 test('pocket', function (t) {
   let pocket = hw.pocket(50);
-  // let trinkets = 0;
 
   pocket.buy();
   t.deepEqual(pocket.coins(), 40);
@@ -79,5 +78,15 @@ test('pocket', function (t) {
   pocket.sell();
   t.deepEqual(pocket.coins(), 35);
   t.deepEqual(pocket.trinkets(), 1);
+
+  // can't have negative coins or trinkets
+
+  // pocket.sell();pocket.sell();pocket.sell();
+  // pocket.sell();pocket.sell();pocket.sell();
+  // pocket.sell();pocket.sell();pocket.sell();
+
+  // t.deepEqual(pocket.coins(), 35);
+  // t.deepEqual(pocket.trinkets(), 1);
+
 
 });
